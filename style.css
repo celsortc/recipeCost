@@ -1,0 +1,36 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.calculator-container {
+  height: 100vh;
+  background-color: rgba(217, 255, 217, 0.74);
+}
+
+.calculator {
+  height: 500px;
+  background-color: #fff;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnCalcular {
+  grid-column: 3;
+  justify-self: end;
+}
