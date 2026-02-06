@@ -14,11 +14,10 @@
 
 .calculator {
   margin-top: 100px;
-  height: 500px;
+  height: 600px;
+  width: 600px;
   background-color: #fff;
   border-radius: 10px;
-  padding: 15px;
-  /* border: 1px solid red; */
 }
 
 form {
@@ -31,24 +30,44 @@ form {
 .cabeçalho,
 .lista-ingredientes li {
   display: grid;
+  background-color: red;
+  grid-template-columns: 2fr repeat(3, 1fr) 40px;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+
+.cabeçalho p {
+  border: 1px solid black;
+  height: 45px;
+  align-content: center;
+}
+
+.lista-ingredientes li {
+  height: 45px;
+  border: 1px solid black;
+  align-content: center;
+}
+
+.lista-ingredientes span {
+  border: 1px solid black;
+  height: 45px;
+  align-content: center;
+}
+
+/* .cabeçalho,
+.lista-ingredientes li {
+  display: grid;
   grid-template-columns: 2fr repeat(3, 1fr) 40px;
   align-items: center;
   gap: 10px;
   text-align: center;
-}
+} */
 
-.lista-ingredientes li {
-  justify-items: center;
-}
-
-.lista-ingredientes li {
+/* .lista-ingredientes li {
   padding: 8px 10px;
   border-bottom: 1px solid #ddd;
-}
-
-.lista-ingredientes li span {
-  text-align: center;
-}
+} */
 
 /* p:not(:last-child),
 span:not(:nth-last-child(2)) {
@@ -90,9 +109,6 @@ ul li {
   position: relative;
   font-size: 1.2rem;
   user-select: none;
-  padding: 16px 0px 0px 20px;
-  display: flex;
-  justify-content: space-between;
 }
 
 ul li::before {
@@ -102,8 +118,7 @@ ul li::before {
   height: 6px;
   border-radius: 50%;
   background-color: #000;
-  background-position: center;
-  left: 4px;
+  left: 24px;
 }
 
 li span:not(.fechar) {
