@@ -1,3 +1,5 @@
-import addIngredient from "./modules/addIngredient.js";
+import toggleIngredient from "./modules/toggleIngredient.js";
+import calculos from "./modules/calculos.js";
 
-addIngredient();
+toggleIngredient();
+calculos();
