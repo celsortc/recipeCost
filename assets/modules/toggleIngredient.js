@@ -1,16 +1,19 @@
 export default function toggleIngredient() {
   const btnCalcular = document.querySelector(".btnCalcular");
   const listaIngredientes = document.querySelector(".lista-ingredientes");
+  showData(listaIngredientes);
 
   listaIngredientes.addEventListener("click", (e) => {
     if (e.target.className === "fechar") {
       e.target.parentElement.remove();
+      saveData(listaIngredientes);
     }
   });
 
   btnCalcular.addEventListener("click", (e) => {
     e.preventDefault();
     createIngredient(listaIngredientes);
+
     //previne padrão do submit e chama função de adicionar ingredientes
   });
 }
@@ -35,16 +38,20 @@ function createIngredient(listaIngredientes) {
   spanCusto.classList.add("custoTotalIngrediente");
   li.appendChild(spanCusto);
 
-  const teste = document.createElement("span");
-  teste.innerHTML = "teste";
-  li.appendChild(teste);
-  // const spanQtd = document.createElement("span");
-  // spanQtd.innerHTML = quantidade.value;
-  // spanQtd.classList.add("qtdIngrediente");
-  // li.appendChild(spanQtd);
+  const custoUnitario = document.createElement("span");
 
   const spanFechar = document.createElement("span");
   spanFechar.innerHTML = "X";
   spanFechar.classList.add("fechar");
   li.appendChild(spanFechar);
+
+  saveData(listaIngredientes);
+}
+
+function saveData(listaIngredientes) {
+  localStorage.setItem("dados", listaIngredientes.innerHTML);
+}
+
+function showData(listaIngredientes) {
+  listaIngredientes.innerHTML = localStorage.getItem("dados");
 }
