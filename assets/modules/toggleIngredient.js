@@ -1,3 +1,5 @@
+import { calculoCustoReceita } from "./calculos.js";
+
 export default function toggleIngredient() {
   const btnCalcular = document.querySelector(".btnCalcular");
   const listaIngredientes = document.querySelector(".lista-ingredientes");
@@ -19,24 +21,37 @@ export default function toggleIngredient() {
 }
 
 function createIngredient(listaIngredientes) {
-  const ingrediente = document.getElementById("ingrediente");
-  const quantidade = document.getElementById("quantidade");
-  const custo = document.getElementById("custo");
+  const ingredienteNome = document.getElementById("ingrediente");
+  const qtdPacote = document.getElementById("quantidade");
+  const precoPacote = document.getElementById("custo");
+  const qtdUtilizada = document.getElementById("utilizado");
+
+  const ingrediente = {
+    nome: ingredienteNome.value,
+    quantidadeTotal: qtdPacote.value,
+    custoPacote: precoPacote.value,
+    quantidadeUtilizada: qtdUtilizada.value,
+    custoDaReceita: calculoCustoReceita(
+      qtdPacote.value,
+      precoPacote.value,
+      qtdUtilizada.value,
+    ),
+  };
 
   const li = document.createElement("li");
-  li.innerHTML = ingrediente.value;
+  li.innerHTML = ingredienteNome.value;
   li.classList.add("item-ingrediente");
   listaIngredientes.appendChild(li);
 
   const spanQtd = document.createElement("span");
-  spanQtd.innerHTML = quantidade.value;
+  spanQtd.innerHTML = qtdPacote.value;
   spanQtd.classList.add("qtdIngrediente");
   li.appendChild(spanQtd);
 
-  const spanCusto = document.createElement("span");
-  spanCusto.innerHTML = custo.value;
-  spanCusto.classList.add("custoTotalIngrediente");
-  li.appendChild(spanCusto);
+  const spanPrecoPacote = document.createElement("span");
+  spanPrecoPacote.innerHTML = precoPacote.value;
+  spanPrecoPacote.classList.add("Ingrediente");
+  li.appendChild(spanPrecoPacote);
 
   const custoUnitario = document.createElement("span");
 
