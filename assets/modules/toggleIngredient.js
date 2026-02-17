@@ -53,7 +53,10 @@ function createIngredient(listaIngredientes) {
   spanPrecoPacote.classList.add("Ingrediente");
   li.appendChild(spanPrecoPacote);
 
-  const custoUnitario = document.createElement("span");
+  const spanCustoDaQtd = document.createElement("span");
+  spanCustoDaQtd.innerHTML = ingrediente.custoDaReceita;
+  spanCustoDaQtd.classList.add("spanCustoDaQtd");
+  li.appendChild(spanCustoDaQtd);
 
   const spanFechar = document.createElement("span");
   spanFechar.innerHTML = "X";
